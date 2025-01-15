@@ -48,7 +48,6 @@ def convert_spotify_json_to_excel(input_folder, output_file):
         'incognito_mode': 'Private Session'
     }
     
-    # Rename columns
     df = df.rename(columns=column_rename)
     
 
