@@ -87,29 +87,6 @@ FROM listening_patterns
 ORDER BY hour_of_day;
 
 --[OR]
-
-SELECT 
-    DATEPART(hour, Timestamp) as hour_of_day,
-    COUNT(*) as play_count,
-	CASE 
-           WHEN DATEPART(HOUR, Timestamp) BETWEEN 5 AND 11 THEN 'Morning'
-           WHEN DATEPART(HOUR, Timestamp) BETWEEN 12 AND 16 THEN 'Afternoon'
-           WHEN DATEPART(HOUR, Timestamp) BETWEEN 17 AND 20 THEN 'Evening'
-           ELSE 'Night'
-        END as time_of_day,
-    COUNT(DISTINCT [Track Name]) as unique_tracks,
-    COUNT(DISTINCT Artist) as unique_artists
-FROM SpotifyProject..StreamingHistory
-GROUP BY  DATEPART(HOUR, Timestamp),
-	Case
-            WHEN DATEPART(HOUR, Timestamp) BETWEEN 5 AND 11 THEN 'Morning'
-            WHEN DATEPART(HOUR, Timestamp) BETWEEN 12 AND 16 THEN 'Afternoon'
-            WHEN DATEPART(HOUR, Timestamp) BETWEEN 17 AND 20 THEN 'Evening'
-            ELSE 'Night'
-        END 
-ORDER BY hour_of_day
-
-------------------------------------------------------------------------------------------
 Select DATEPART(HOUR, Timestamp) as Hour_of_The_Day,  
 Case 
 When DATEPART(hour, Timestamp) between 5 and 11 then 'Morning'
@@ -257,27 +234,7 @@ ORDER BY session_start;
 
 
 -----------------------------------------------------------------------------------------------------------------------------
---Queries for Visualisation
---1. Query to show the average completion rate and its average time played
-SELECT 
-    [Track Name],
-    Artist,
-    COUNT(*) AS total_plays,
-    SUM(CASE WHEN Skipped = 'No' THEN 1 ELSE 0 END) AS completed_plays,
-    ROUND(
-        (CAST(SUM(CASE WHEN Skipped = 'No' THEN 1 ELSE 0 END) AS FLOAT) / COUNT(*)) * 100, 
-        2
-    ) AS completion_rate,
-    AVG(
-        CAST(LEFT([Duration (MM:SS)], CHARINDEX(':', [Duration (MM:SS)]) - 1) AS INTEGER) * 60 +
-        CAST(SUBSTRING([Duration (MM:SS)], CHARINDEX(':', [Duration (MM:SS)]) + 1, LEN([Duration (MM:SS)])) AS INTEGER)
-    ) AS avg_duration_seconds
-FROM SpotifyProject..StreamingHistory
-GROUP BY [Track Name], Artist
-HAVING COUNT(*) >= 10
-ORDER BY completion_rate DESC
-
---2. Artist Discovery (When was the first time you played a certain artist and who)
+--2. Artist Discovery Timeline(When was the first time you played a certain artist and who)
 
 WITH first_listen AS (
     SELECT 
