@@ -3,10 +3,10 @@
 [![React](https://img.shields.io/badge/React-18.2%2B-%2361DAFB)](https://react.dev/)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
-SQL Data Analysis Queries 🔍📈
+**SQL Data Analysis Queries 🔍📈**
 The following SQL queries power the analytics engine for Spotify listening history analysis. Executed in SQL Server Management Studio (SSMS), these T-SQL scripts extract key insights from streaming history data.
 
-Basic Analytics
+**Basic Analytics**
 Summary Metrics
 
 SELECT COUNT(*) as total_plays                    -- Total tracks played
@@ -14,7 +14,7 @@ SELECT COUNT(DISTINCT [Track Name])               -- Unique songs
 SELECT COUNT(DISTINCT Artist)                     -- Unique artists
 Calculates foundational metrics for dashboard overview cards.
 
-Top Content Analysis
+**Top Content Analysis**
 
 -- Top 10 tracks by total listening time
 SELECT TOP 10 [Track Name], Artist, ... 
@@ -25,7 +25,7 @@ SELECT Artist, COUNT(*) AS Total_Plays, ...
 ORDER BY Total_Hours_Played DESC
 Powers the "Top Tracks" and "Artist Rankings" visualizations.
 
-Intermediate Analysis
+**Intermediate Analysis**
 Temporal Patterns
 
 -- Hourly listening heatmap (grouped into Morning/Afternoon/Evening/Night)
@@ -35,14 +35,14 @@ WITH listening_patterns AS (...)
 SELECT DATENAME(WEEKDAY, Timestamp) as Day_Of_Week...
 Feeds the hourly heatmap and weekly trends charts.
 
-Skip Behavior
+**Skip Behavior**
 
 SELECT [Track Name], Artist, 
        ROUND(...) AS Skip_Percentage
 HAVING COUNT(*)>=5
 Identifies tracks with >5 plays and their skip rates for ML training data.
 
-Advanced Analysis
+**Advanced Analysis**
 Session Detection
 
 WITH session_breaks AS (...)
@@ -65,9 +65,7 @@ Data Filtering: Excludes null values for [Track Name] and Artist in critical que
 
 These queries directly feed into the dashboard's Chart.js visualizations and ML models through Flask API endpoints. See the SpotifyQueries.sql file for full implementation details.
 
-[![Python](https://img.shields.io/badge/Python-3.12%2B-blue)](https://www.python.org/)
-[![React](https://img.shields.io/badge/React-18.2%2B-%2361DAFB)](https://react.dev/)
-[![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
+**A WebApp Based on the following queries:**
 
 A full-stack web application that analyzes Spotify listening habits, predicts track-skipping behavior using machine learning, and visualizes user engagement trends.
 
