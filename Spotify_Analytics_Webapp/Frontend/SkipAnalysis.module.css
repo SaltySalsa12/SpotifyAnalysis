@@ -1,0 +1,39 @@
+/* src/components/SkipAnalysis/SkipAnalysis.module.css */
+.skipAnalysisContainer {
+  background: var(--secondary-black);
+  border: 1px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 1.5rem;
+  width: 100%; /* Take up full width */
+  margin: 0 auto; /* Center the container */
+  overflow-x: auto; /* Horizontal scroll for small screens */
+}
+
+.table {
+  width: 100%; /* Full width */
+  border-collapse: collapse; /* Remove spacing between cells */
+}
+
+.table th, .table td {
+  padding: 12px;
+  text-align: left; /* Align text to the left */
+  border-bottom: 1px solid rgba(0, 255, 136, 0.1); /* Add subtle border */
+}
+
+.table th {
+  background: rgba(0, 255, 136, 0.1); /* Light green background for headers */
+  color: var(--primary-green);
+  font-weight: bold;
+}
+
+.table tr:hover {
+  background: rgba(0, 255, 136, 0.05); /* Hover effect for rows */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .table th, .table td {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+}

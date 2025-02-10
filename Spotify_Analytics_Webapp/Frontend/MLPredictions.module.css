@@ -1,0 +1,82 @@
+/* src/components/MLPredictions/MLPredictions.module.css */
+.container {
+    background: var(--secondary-black);
+    border: 1px solid var(--primary-green);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .formGroup label {
+    color: var(--primary-green);
+  }
+  
+  .formGroup input {
+    padding: 0.5rem;
+    border: 1px solid var(--primary-green);
+    border-radius: 4px;
+    background: var(--dark-bg);
+    color: var(--primary-green);
+  }
+  
+  .submitButton {
+    padding: 0.75rem;
+    background: var(--primary-green);
+    color: var(--dark-bg);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .submitButton:hover {
+    background: var(--accent-green);
+  }
+  
+  .result {
+    margin-top: 1.5rem;
+    color: var(--primary-green);
+  }
+  
+  .error {
+    color: #ff4d4d;
+    margin-top: 1rem;
+  }
+
+  .loading {
+    text-align: center;
+    margin: 2rem 0;
+    color: var(--primary-green);
+  }
+  
+  .spinner {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    border: 3px solid rgba(0, 255, 136, 0.3);
+    border-radius: 50%;
+    border-top-color: var(--primary-green);
+    animation: spin 1s ease-in-out infinite;
+  }
+  
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  
+  .interpretation {
+    color: var(--accent-green);
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+  }

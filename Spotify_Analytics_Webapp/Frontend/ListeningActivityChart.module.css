@@ -1,0 +1,24 @@
+/* src/components/ListeningActivityChart/ListeningActivityChart.module.css */
+.chartContainer {
+  background: var(--secondary-black);
+  border: 1px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 1.5rem;
+  height: 600px; /* Fixed height */
+  position: relative;
+  overflow: hidden;
+}
+
+.title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+.chartWrapper {
+  height: calc(100% - 40px);
+  position: relative;
+}
+
+/* Remove rotating watermark effect */

@@ -1,0 +1,33 @@
+/* src/components/ArtistStats/ArtistStats.module.css */
+.container {
+    background: var(--secondary-black);
+    border: 1px solid var(--primary-green);
+    border-radius: 12px;
+    padding: 1.5rem;
+    height: fit-content;
+  }
+  
+  .title {
+    color: var(--primary-green);
+    margin-bottom: 1rem;
+  }
+  
+  .list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .listItem {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid rgba(0, 255, 136, 0.1);
+  }
+  
+  .artistName {
+    color: var(--primary-green);
+  }
+  
+  .playCount {
+    color: var(--accent-green);
+  }
