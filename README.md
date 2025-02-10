@@ -1,4 +1,7 @@
 # Spotify Analytics Dashboard 🎵📊
+[![Python](https://img.shields.io/badge/Python-3.12%2B-blue)](https://www.python.org/)
+[![React](https://img.shields.io/badge/React-18.2%2B-%2361DAFB)](https://react.dev/)
+[![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
 SQL Data Analysis Queries 🔍📈
 The following SQL queries power the analytics engine for Spotify listening history analysis. Executed in SQL Server Management Studio (SSMS), these T-SQL scripts extract key insights from streaming history data.
