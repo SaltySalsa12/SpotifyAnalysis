@@ -7,6 +7,7 @@
 The following SQL queries power the analytics engine for Spotify listening history analysis. Executed in SQL Server Management Studio (SSMS), these T-SQL scripts extract key insights from streaming history data.
 
 ![Dashboard Screenshot](https://github.com/user-attachments/assets/9ea9736e-ac15-401e-a236-01af6f023b59) 
+Link to follow to see it in its entirity: (https://public.tableau.com/app/profile/yash.shah4829/viz/SpotifyDashboard_17393135130810/SpotifyAnalytics)
 
 **Basic Analytics**
 Summary Metrics
