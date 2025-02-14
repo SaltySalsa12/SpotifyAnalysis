@@ -20,6 +20,7 @@ Calculates foundational metrics for dashboard overview cards.
 **Top Content Analysis**
 
 -- Top 10 tracks by total listening time
+
 SELECT TOP 10 [Track Name], Artist, ... 
 ORDER BY total_seconds_played DESC
 
@@ -36,7 +37,7 @@ WITH listening_patterns AS (...)
 
 -- Day-of-week analysis with average track duration
 SELECT DATENAME(WEEKDAY, Timestamp) as Day_Of_Week...
-Feeds the hourly heatmap and weekly trends charts.
+-- Feeds the hourly heatmap and weekly trends charts.
 
 **Skip Behavior**
 
@@ -46,19 +47,20 @@ HAVING COUNT(*)>=5
 Identifies tracks with >5 plays and their skip rates for ML training data.
 
 **Advanced Analysis**
+
 Session Detection
 
 WITH session_breaks AS (...)
 SELECT session_id, session_start, session_end...
 Uses 30-minute gaps between plays to define listening sessions.
 
-Artist Discovery Timeline
+**Artist Discovery Timeline**
 
 WITH first_listen AS (...)
 SELECT day_of_week + ', ' + CAST(day AS VARCHAR)...
 Tracks when new artists were first played (formatted as "Tuesday, 3rd April 2024").
 
-Key Technical Notes
+**Key Technical Notes**
 Duration Conversion: Uses CHARINDEX and SUBSTRING to convert MM:SS durations to seconds
 
 CAST(SUBSTRING([Duration...])*60 + CAST(SUBSTRING(...))
@@ -71,8 +73,6 @@ These queries directly feed into the dashboard's Chart.js visualizations and ML 
 **A WebApp Based on the following queries:**
 
 A full-stack web application that analyzes Spotify listening habits, predicts track-skipping behavior using machine learning, and visualizes user engagement trends.
-
-![Dashboard Screenshot](screenshot.png) --[Work in Progress --Coming Soon]
 
 ## Features ✨
 
